@@ -2,11 +2,11 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a class="accordion-toggle"
+        <a class="accordion-toggle  block clearfix"
           @click="toggleIsOpen()">
-          <slot name="header"> 
+           <span class="pull-left"><slot name="header"> 
             {{ header }}
-          </slot>
+          </slot></span>
         </a>
       </h4>
     </div>

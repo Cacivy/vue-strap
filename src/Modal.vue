@@ -12,7 +12,7 @@
         <slot name="modal-header">
           <div class="modal-header">
             <button type="button" class="close" @click="close"><span>&times;</span></button>
-            <h4 class="modal-title" > 
+            <h4 class="modal-title" >
               <slot name="title">
                 {{title}}
               </slot>
@@ -22,7 +22,7 @@
         <slot name="modal-body">
           <div class="modal-body"></div>
         </slot>
-        <slot name="modal-footer">
+        <slot name="modal-footer" v-if="showfooter">
           <div class="modal-footer">
             <button type="button" class="btn btn-default" @click="close">{{ cancelText }}</button>
             <button type="button" class="btn btn-primary" @click="callback">{{ okText }}</button>
@@ -83,6 +83,10 @@ import coerceBoolean from './utils/coerceBoolean.js'
         type: Boolean,
         coerce: coerceBoolean,
         default: false
+      },
+      showfooter:{
+        type: Boolean,
+        default: false
       }
     },
     ready() {
@@ -105,10 +109,10 @@ import coerceBoolean from './utils/coerceBoolean.js'
           }
         } else {
           if (this._blurModalContentEvent) this._blurModalContentEvent.remove()
-          el.classList.remove('in')
+            el.classList.remove('in')
           setTimeout(()=> {
             el.style.display = 'none'
-            body.classList.remove('modal-open')
+              body.classList.remove('modal-open')
             body.style.paddingRight = '0'
           }, 300)
         }

@@ -1,6 +1,6 @@
 <template>
   <div class="btn-group" v-bind:class="{open: show}">
-    <button v-el:btn type="button" class="btn btn-default dropdown-toggle"
+    <button v-el:btn type="button" :class="{'input_error': error}" class="btn dropdown-toggle dropdown_toggle min_w160 bo_w1 form-control"
       @click="toggleDropdown"
       @blur="show = (search ? show : false)"
       v-bind="{disabled: disabled}"
@@ -42,11 +42,15 @@ import coerceBoolean from './utils/coerceBoolean.js'
       },
       placeholder: {
         type: String,
-        default: 'Nothing Selected'
+        default: '请选择'
       },
       multiple: {
         type: Boolean,
         coerce: coerceBoolean,
+        default: false
+      },
+      error:{
+        type: Boolean,
         default: false
       },
       search: { // Allow searching (only works when options are provided)
@@ -95,18 +99,26 @@ import coerceBoolean from './utils/coerceBoolean.js'
       selectedItems() {
         let foundItems = []
         if (this.value.length) {
-          this.value.forEach(item => {
-            if (typeof item === "string") {
-              let option
-              this.options.some(o => {
-                if(o.value === item) {
-                  option = o
-                  return true
-                }
-              })
-              option && foundItems.push(option.label)
-            }
-          })
+          for (var item of this.value) {
+          	if (this.options.length ===0)
+          	{
+          		//
+          		foundItems = this.value;
+          	}
+          	else
+          	{
+	            if (typeof item === "string") {
+	              let option
+	              this.options.some(o => {
+	                if(o.value === item) {
+	                  option = o
+	                  return true
+	                }
+	              })
+	              option && foundItems.push(option.label)
+	            }
+          	}
+          }
           return foundItems.join(', ')
         }
       },

@@ -9,7 +9,7 @@
 
 <script>
   // import styling
-  import './spinner.scss'
+  // import './spinner.scss'
 
   const MIN_WAIT = 500 // in ms
 

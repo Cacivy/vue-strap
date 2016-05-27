@@ -21,7 +21,7 @@
 
 <template>
   <div class="datepicker">
-    <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
+    <input class="form-control datepicker-input"  :class="{'with-reset-button': showResetButton}" type="text"
         v-bind:style="{width:width}"
         @click="inputClick"
         v-model="value"/>
@@ -116,7 +116,7 @@ export default {
   },
   data() {
     return {
-      weekRange: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      weekRange: ["日", "一", "二", "三", "四", "五", "六"],
       dateRange: [],
       decadeRange: [],
       currDate: new Date,
@@ -124,10 +124,7 @@ export default {
       displayMonthView: false,
       displayYearView: false,
       monthNames: [
-        'January', 'February', 'March',
-        'April', 'May', 'June',
-        'July', 'August', 'September',
-        'October', 'November', 'December'
+        "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"
       ]
     }
   },
@@ -346,7 +343,7 @@ export default {
   },
   ready() {
     this.$dispatch('child-created', this)
-    this.currDate = this.parse(this.value) || this.parse(new Date())
+    //this.currDate = this.parse(this.value) || this.parse(new Date())
     this._closeEvent = EventListener.listen(window, 'click', (e)=> {
       if (!this.$el.contains(e.target)) this.close()
     })
