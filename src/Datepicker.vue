@@ -343,7 +343,7 @@ export default {
   },
   ready() {
     this.$dispatch('child-created', this)
-    //this.currDate = this.parse(this.value) || this.parse(new Date())
+    this.currDate = this.parse(this.value) || this.parse(new Date())
     this._closeEvent = EventListener.listen(window, 'click', (e)=> {
       if (!this.$el.contains(e.target)) this.close()
     })

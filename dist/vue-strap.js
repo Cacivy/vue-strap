@@ -3369,7 +3369,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _this2 = this;
 	
 	    this.$dispatch('child-created', this);
-	    //this.currDate = this.parse(this.value) || this.parse(new Date())
+	    this.currDate = this.parse(this.value) || this.parse(new Date());
 	    this._closeEvent = _EventListener2.default.listen(window, 'click', function (e) {
 	      if (!_this2.$el.contains(e.target)) _this2.close();
 	    });
