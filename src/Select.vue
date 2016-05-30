@@ -1,6 +1,6 @@
 <template>
   <div class="btn-group" v-bind:class="{open: show}">
-    <button v-el:btn type="button" :class="{'input_error': error}" class="btn dropdown-toggle dropdown_toggle min_w160 bo_w1 form-control"
+    <button v-el:btn type="button" :class="width"  class="btn dropdown-toggle dropdown_toggle bo_w1 form-control"
       @click="toggleDropdown"
       @blur="show = (search ? show : false)"
       v-bind="{disabled: disabled}"
@@ -9,7 +9,7 @@
       <span class="btn-content">{{ selectedItems }}</span>
       <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu" >
       <template v-if="options.length">
         <li v-if="search" class="bs-searchbox">
           <input type="text" placeholder="Search" v-model="searchText" class="form-control" autocomplete="off">
@@ -49,10 +49,10 @@ import coerceBoolean from './utils/coerceBoolean.js'
         coerce: coerceBoolean,
         default: false
       },
-      error:{
-        type: Boolean,
-        default: false
-      },
+      // error:{
+      //   type: Boolean,
+      //   default: false
+      // },
       search: { // Allow searching (only works when options are provided)
       	type: Boolean,
         coerce: coerceBoolean,
@@ -70,6 +70,14 @@ import coerceBoolean from './utils/coerceBoolean.js'
       disabled: {
         type: Boolean,
         coerce: coerceBoolean,
+        default: false
+      },
+      width:{
+        type: String,
+        default: "min_w160"
+      },
+      show:{
+        type: Boolean,
         default: false
       }
     },
@@ -91,7 +99,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
     data() {
       return {
         searchText: null,
-        show: false,
+        // show: false,
         showNotify: false
       }
     },
