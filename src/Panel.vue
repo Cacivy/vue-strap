@@ -1,12 +1,12 @@
 <template>
   <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading year_button poR">
       <h4 class="panel-title">
         <a class="accordion-toggle  block clearfix"
           @click="toggleIsOpen()">
-           <span class="pull-left"><slot name="header"> 
+           <span class="pull-left mg_l10"><slot name="header"> 
             {{ header }}
-          </slot></span>
+          </slot></span><span class="caret"></span>
         </a>
       </h4>
     </div>

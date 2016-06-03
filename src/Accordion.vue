@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-group">
+  <div class="panel-group auto">
     <slot></slot>
   </div>
 </template>

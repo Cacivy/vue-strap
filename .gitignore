@@ -3,6 +3,7 @@ node_modules
 npm-debug.log
 static
 build
+dist
 .idea
 
 vue-strap.sublime-project

@@ -2086,7 +2086,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	// </script>
 	// <template>
-	//   <div class="panel-group">
+	//   <div class="panel-group auto">
 	//     <slot></slot>
 	//   </div>
 	// </template>
@@ -2097,7 +2097,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 98 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel-group\">\n    <slot></slot>\n  </div>";
+	module.exports = "<div class=\"panel-group auto\">\n    <slot></slot>\n  </div>";
 
 /***/ },
 /* 99 */
@@ -4241,13 +4241,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 	// <template>
 	//   <div class="panel panel-default">
-	//     <div class="panel-heading">
+	//     <div class="panel-heading year_button poR">
 	//       <h4 class="panel-title">
 	//         <a class="accordion-toggle  block clearfix"
 	//           @click="toggleIsOpen()">
-	//            <span class="pull-left"><slot name="header">
+	//            <span class="pull-left mg_l10"><slot name="header">
 	//             {{ header }}
-	//           </slot></span>
+	//           </slot></span><span class="caret"></span>
 	//         </a>
 	//       </h4>
 	//     </div>
@@ -4269,7 +4269,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 144 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle  block clearfix\"\n          @click=\"toggleIsOpen()\">\n           <span class=\"pull-left\"><slot name=\"header\"> \n            {{ header }}\n          </slot></span>\n        </a>\n      </h4>\n    </div>\n    <div class=\"panel-collapse\"\n      v-el:panel\n      v-show=\"isOpen\"\n      transition=\"collapse\"\n    >\n      <div class=\"panel-body\">\n        <slot></slot>\n      </div>\n    </div>\n  </div>";
+	module.exports = "<div class=\"panel panel-default\">\n    <div class=\"panel-heading year_button poR\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle  block clearfix\"\n          @click=\"toggleIsOpen()\">\n           <span class=\"pull-left mg_l10\"><slot name=\"header\"> \n            {{ header }}\n          </slot></span><span class=\"caret\"></span>\n        </a>\n      </h4>\n    </div>\n    <div class=\"panel-collapse\"\n      v-el:panel\n      v-show=\"isOpen\"\n      transition=\"collapse\"\n    >\n      <div class=\"panel-body\">\n        <slot></slot>\n      </div>\n    </div>\n  </div>";
 
 /***/ },
 /* 145 */
