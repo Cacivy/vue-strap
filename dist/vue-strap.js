@@ -3825,7 +3825,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        setTimeout(function () {
 	          return el.classList.add('in');
 	        }, 0);
-	        body.classList.add('modal-open');
+	
+	        setTimeout(function () {
+	          if (el.classList) el.classList.add('in');else el.className += ' in';
+	        }, 0);
+	
+	        if (el.classList) el.classList.add('modal-open');else el.className += ' modal-open';
+	        //body.classList.add('modal-open')
+	
 	        if (scrollBarWidth !== 0) {
 	          body.style.paddingRight = scrollBarWidth + 'px';
 	        }
@@ -3836,10 +3843,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      } else {
 	        if (_this._blurModalContentEvent) _this._blurModalContentEvent.remove();
-	        el.classList.remove('in');
+	
+	        if (el.classList) el.classList.remove('in');else el.className = el.className.replace(new RegExp('(^|\\b)' + 'in'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	
+	        // el.classList.remove('in')
 	        setTimeout(function () {
 	          el.style.display = 'none';
-	          body.classList.remove('modal-open');
+	
+	          if (el.classList) el.classList.remove('modal-open');else el.className = el.className.replace(new RegExp('(^|\\b)' + 'modal-open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	          // body.classList.remove('modal-open')
 	          body.style.paddingRight = '0';
 	        }, 300);
 	      }
