@@ -182,8 +182,8 @@ import coerceBoolean from './utils/coerceBoolean.js'
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
-    -webkit-transform: translate3d(0, -300px, 0);
-    transform: translate3d(0, -300px, 0);
+    /*-webkit-transform: translate3d(0, -300px, 0);
+    transform: translate3d(0, -300px, 0);*/
     opacity: 1;
 }
 </style>

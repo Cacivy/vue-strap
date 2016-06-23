@@ -6,7 +6,8 @@
           @click="toggleIsOpen()">
            <span class="pull-left mg_l10"><slot name="header"> 
             {{ header }}
-          </slot></span><span class="caret"></span>
+          </slot></span>
+          <span class="caret" :class="{'open':isOpen}"></span>
         </a>
       </h4>
     </div>

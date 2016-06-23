@@ -2943,7 +2943,7 @@
 	};
 	// </script>
 	// <template>
-	//   <div class="panel-group">
+	//   <div class="panel-group auto">
 	//     <slot></slot>
 	//   </div>
 	// </template>
@@ -2954,7 +2954,7 @@
 /* 131 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel-group\">\n    <slot></slot>\n  </div>";
+	module.exports = "<div class=\"panel-group auto\">\n    <slot></slot>\n  </div>";
 
 /***/ },
 /* 132 */
@@ -3085,13 +3085,14 @@
 	// </style>
 	// <template>
 	//   <div class="panel panel-default">
-	//     <div class="panel-heading">
+	//     <div class="panel-heading year_button poR">
 	//       <h4 class="panel-title">
 	//         <a class="accordion-toggle  block clearfix"
 	//           @click="toggleIsOpen()">
-	//            <span class="pull-left"><slot name="header">
+	//            <span class="pull-left mg_l10"><slot name="header">
 	//             {{ header }}
 	//           </slot></span>
+	//           <span class="caret" :class="{'open':isOpen}"></span>
 	//         </a>
 	//       </h4>
 	//     </div>
@@ -3113,7 +3114,7 @@
 /* 136 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle  block clearfix\"\n          @click=\"toggleIsOpen()\">\n           <span class=\"pull-left\"><slot name=\"header\"> \n            {{ header }}\n          </slot></span>\n        </a>\n      </h4>\n    </div>\n    <div class=\"panel-collapse\"\n      v-el:panel\n      v-show=\"isOpen\"\n      transition=\"collapse\"\n    >\n      <div class=\"panel-body\">\n        <slot></slot>\n      </div>\n    </div>\n  </div>";
+	module.exports = "<div class=\"panel panel-default\">\n    <div class=\"panel-heading year_button poR\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle  block clearfix\"\n          @click=\"toggleIsOpen()\">\n           <span class=\"pull-left mg_l10\"><slot name=\"header\"> \n            {{ header }}\n          </slot></span>\n          <span class=\"caret\" :class=\"{'open':isOpen}\"></span>\n        </a>\n      </h4>\n    </div>\n    <div class=\"panel-collapse\"\n      v-el:panel\n      v-show=\"isOpen\"\n      transition=\"collapse\"\n    >\n      <div class=\"panel-body\">\n        <slot></slot>\n      </div>\n    </div>\n  </div>";
 
 /***/ },
 /* 137 */
@@ -6251,7 +6252,7 @@
 	    var _this2 = this;
 	
 	    this.$dispatch('child-created', this);
-	    //this.currDate = this.parse(this.value) || this.parse(new Date())
+	    this.currDate = this.parse(this.value) || this.parse(new Date());
 	    this._closeEvent = _EventListener2.default.listen(window, 'click', function (e) {
 	      if (!_this2.$el.contains(e.target)) _this2.close();
 	    });
@@ -6572,10 +6573,10 @@
 	      coerce: _coerceBoolean2.default,
 	      default: false
 	    },
-	    error: {
-	      type: Boolean,
-	      default: false
-	    },
+	    // error:{
+	    //   type: Boolean,
+	    //   default: false
+	    // },
 	    search: { // Allow searching (only works when options are provided)
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
@@ -6593,6 +6594,14 @@
 	    disabled: {
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
+	      default: false
+	    },
+	    width: {
+	      type: String,
+	      default: "min_w160"
+	    },
+	    show: {
+	      type: Boolean,
 	      default: false
 	    }
 	  },
@@ -6614,7 +6623,7 @@
 	  data: function data() {
 	    return {
 	      searchText: null,
-	      show: false,
+	      // show: false,
 	      showNotify: false
 	    };
 	  },
@@ -6733,7 +6742,7 @@
 	// </style>
 	// <template>
 	//   <div class="btn-group" v-bind:class="{open: show}">
-	//     <button v-el:btn type="button" :class="{'input_error': error}" class="btn dropdown-toggle dropdown_toggle min_w160 bo_w1 form-control"
+	//     <button v-el:btn type="button" :class="width"  class="btn dropdown-toggle dropdown_toggle bo_w1 form-control"
 	//       @click="toggleDropdown"
 	//       @blur="show = (search ? show : false)"
 	//       v-bind="{disabled: disabled}"
@@ -6742,7 +6751,7 @@
 	//       <span class="btn-content">{{ selectedItems }}</span>
 	//       <span class="caret"></span>
 	//     </button>
-	//     <ul class="dropdown-menu">
+	//     <ul class="dropdown-menu" >
 	//       <template v-if="options.length">
 	//         <li v-if="search" class="bs-searchbox">
 	//           <input type="text" placeholder="Search" v-model="searchText" class="form-control" autocomplete="off">
@@ -6864,7 +6873,7 @@
 /* 204 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"btn-group\" v-bind:class=\"{open: show}\" _v-7b6a1fa6=\"\">\n    <button v-el:btn=\"\" type=\"button\" :class=\"{'input_error': error}\" class=\"btn dropdown-toggle dropdown_toggle min_w160 bo_w1 form-control\" @click=\"toggleDropdown\" @blur=\"show = (search ? show : false)\" v-bind=\"{disabled: disabled}\" _v-7b6a1fa6=\"\">\n      <span class=\"btn-placeholder\" v-show=\"showPlaceholder\" _v-7b6a1fa6=\"\">{{placeholder}}</span>\n      <span class=\"btn-content\" _v-7b6a1fa6=\"\">{{ selectedItems }}</span>\n      <span class=\"caret\" _v-7b6a1fa6=\"\"></span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-7b6a1fa6=\"\">\n      <template v-if=\"options.length\" _v-7b6a1fa6=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-7b6a1fa6=\"\">\n          <input type=\"text\" placeholder=\"Search\" v-model=\"searchText\" class=\"form-control\" autocomplete=\"off\" _v-7b6a1fa6=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchText \" v-bind:id=\"option.value\" style=\"position:relative\" _v-7b6a1fa6=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" style=\"cursor:pointer\" _v-7b6a1fa6=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-7b6a1fa6=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-7b6a1fa6=\"\"></slot>\n      <div class=\"notify\" v-show=\"showNotify\" transition=\"fadein\" _v-7b6a1fa6=\"\">Limit reached ({{limit}} items max).\n      </div>\n    </ul>\n  </div>";
+	module.exports = "<div class=\"btn-group\" v-bind:class=\"{open: show}\" _v-7b6a1fa6=\"\">\n    <button v-el:btn=\"\" type=\"button\" :class=\"width\" class=\"btn dropdown-toggle dropdown_toggle bo_w1 form-control\" @click=\"toggleDropdown\" @blur=\"show = (search ? show : false)\" v-bind=\"{disabled: disabled}\" _v-7b6a1fa6=\"\">\n      <span class=\"btn-placeholder\" v-show=\"showPlaceholder\" _v-7b6a1fa6=\"\">{{placeholder}}</span>\n      <span class=\"btn-content\" _v-7b6a1fa6=\"\">{{ selectedItems }}</span>\n      <span class=\"caret\" _v-7b6a1fa6=\"\"></span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-7b6a1fa6=\"\">\n      <template v-if=\"options.length\" _v-7b6a1fa6=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-7b6a1fa6=\"\">\n          <input type=\"text\" placeholder=\"Search\" v-model=\"searchText\" class=\"form-control\" autocomplete=\"off\" _v-7b6a1fa6=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchText \" v-bind:id=\"option.value\" style=\"position:relative\" _v-7b6a1fa6=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" style=\"cursor:pointer\" _v-7b6a1fa6=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-7b6a1fa6=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-7b6a1fa6=\"\"></slot>\n      <div class=\"notify\" v-show=\"showNotify\" transition=\"fadein\" _v-7b6a1fa6=\"\">Limit reached ({{limit}} items max).\n      </div>\n    </ul>\n  </div>";
 
 /***/ },
 /* 205 */
@@ -7867,7 +7876,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".modal {\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n    -webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);\n    opacity: 1;\n}", ""]);
+	exports.push([module.id, ".modal {\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    /*-webkit-transform: scale(1);\n    -moz-transform: scale(1);\n    -ms-transform: scale(1);\n    transform: scale(1);\n    -webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);*/\n\n    -webkit-transform: scale(1.5);\n  transform: scale(1.5);\n    opacity: 1;\n}", ""]);
 	
 	// exports
 
@@ -7964,7 +7973,14 @@
 	        setTimeout(function () {
 	          return el.classList.add('in');
 	        }, 0);
-	        body.classList.add('modal-open');
+	
+	        setTimeout(function () {
+	          if (el.classList) el.classList.add('in');else el.className += ' in';
+	        }, 0);
+	
+	        if (el.classList) el.classList.add('modal-open');else el.className += ' modal-open';
+	        //body.classList.add('modal-open')
+	
 	        if (scrollBarWidth !== 0) {
 	          body.style.paddingRight = scrollBarWidth + 'px';
 	        }
@@ -7975,10 +7991,15 @@
 	        }
 	      } else {
 	        if (_this._blurModalContentEvent) _this._blurModalContentEvent.remove();
-	        el.classList.remove('in');
+	
+	        if (el.classList) el.classList.remove('in');else el.className = el.className.replace(new RegExp('(^|\\b)' + 'in'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	
+	        // el.classList.remove('in')
 	        setTimeout(function () {
 	          el.style.display = 'none';
-	          body.classList.remove('modal-open');
+	
+	          if (el.classList) el.classList.remove('modal-open');else el.className = el.className.replace(new RegExp('(^|\\b)' + 'modal-open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	          // body.classList.remove('modal-open')
 	          body.style.paddingRight = '0';
 	        }, 300);
 	      }
@@ -8021,12 +8042,15 @@
 	//     transition: all 0.3s;
 	// }
 	// .modal.zoom.in .modal-dialog {
-	//     -webkit-transform: scale(1);
+	//     /*-webkit-transform: scale(1);
 	//     -moz-transform: scale(1);
 	//     -ms-transform: scale(1);
 	//     transform: scale(1);
 	//     -webkit-transform: translate3d(0, -300px, 0);
-	//     transform: translate3d(0, -300px, 0);
+	//     transform: translate3d(0, -300px, 0);*/
+
+	//     -webkit-transform: scale(1.5);
+	//   transform: scale(1.5);
 	//     opacity: 1;
 	// }
 	// </style>
