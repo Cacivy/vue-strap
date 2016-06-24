@@ -3728,7 +3728,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".modal {\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n    -webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);\n    opacity: 1;\n}", ""]);
+	exports.push([module.id, ".modal {\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n    /*-webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);*/\n    opacity: 1;\n}", ""]);
 	
 	// exports
 
@@ -3898,8 +3898,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     -moz-transform: scale(1);
 	//     -ms-transform: scale(1);
 	//     transform: scale(1);
-	//     -webkit-transform: translate3d(0, -300px, 0);
-	//     transform: translate3d(0, -300px, 0);
+	//     /*-webkit-transform: translate3d(0, -300px, 0);
+	//     transform: translate3d(0, -300px, 0);*/
 	//     opacity: 1;
 	// }
 	// </style>
