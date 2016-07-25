@@ -66,6 +66,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
 .collapse-transition {
   transition: max-height .5s ease;
   overflow: hidden;
+  max-height: 999px;
 }
 
 .collapse-enter, .collapse-leave {

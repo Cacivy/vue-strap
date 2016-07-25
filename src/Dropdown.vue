@@ -28,5 +28,5 @@
     beforeDestroy() {
       if (this._closeEvent) this._closeEvent.remove()
     }
-  }
+}
 </script>
